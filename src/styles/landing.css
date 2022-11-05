@@ -1,0 +1,15 @@
+div.price {
+  font-size: 20px;
+  text-align: center;
+}
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  background: linear-gradient(#d2eaf5, lightgreen);
+  background-size: cover;
+}
+.MuiCardContent-root.makeStyles-cardContent-7:hover {
+  background-color: beige;
+}

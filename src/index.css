@@ -1,0 +1,371 @@
+/* body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+} */
+
+/* .header {
+  background: #1b6683 !important;
+  /* background: rgb(4, 17, 23) !important;
+    background: linear-gradient( 90deg, rgba(4, 17, 23, 1) 0%, rgba(50, 185, 238, 1) 58%) !important; */
+/*} */
+
+body {
+  /* background-color: rgb(81, 204, 253); */
+  /* background-image: url(Final_Logo.png); */
+}
+
+.Link {
+  cursor: pointer !important;
+  font-size: large !important;
+  text-decoration: none !important;
+  /* padding: 00px !important; */
+  color: white !important;
+}
+
+.link2 {
+  color: white !important;
+}
+
+.pLink {
+  cursor: pointer !important;
+  text-decoration: none !important;
+  color: black !important;
+}
+/* appbar css */
+
+.appbar {
+  padding-bottom: 70px;
+}
+
+.appbarImage {
+  height: 50px;
+  width: 150px;
+}
+/* product description */
+
+.proImage {
+  margin-left: 600px !important;
+}
+
+.proContainer {
+  padding-top: 0px !important;
+}
+
+.cobLight {
+  font-size: 60px;
+  padding-top: 50px;
+  padding-left: 40px;
+}
+
+.cobImageG {
+  padding-left: 400px !important;
+}
+
+.cobImage {
+  width: 150px !important;
+}
+
+.cobButton {
+  margin-left: 800px !important;
+}
+/* carousel css */
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: none !important;
+}
+/* footer css */
+
+.footer {
+  background: #1b6683 !important;
+  font-size: 25px;
+  padding: 10px 0 10px 0px;
+  padding-left: 150px;
+}
+
+.footerpadding {
+  padding-left: 150px;
+}
+
+.MuiGrid-align-items-xs-center {
+  align-items: center;
+}
+/* contact us form */
+
+.contactForm {
+  margin-left: 150px !important;
+}
+
+.root {
+  width: 100%;
+}
+/* landing page */
+
+.price {
+  text-align: center;
+  font-size: 20px;
+}
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  /* footer css */
+  .footer {
+    padding-top: 0px;
+    padding-left: 0px;
+    text-align: center;
+    padding-left: 0px;
+  }
+  .footerpadding {
+    padding-left: 10px;
+    display: inline;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .contactForm {
+    margin-left: 0px !important;
+  }
+  /* product description */
+  .cobLight {
+    font-size: 50px;
+    padding-top: 50px;
+    padding-left: 0px;
+    text-align: center;
+  }
+  .cobImageG {
+    padding-left: 0px !important;
+    text-align: center;
+  }
+  .cobImage {
+    width: 190px !important;
+  }
+  .cobButton {
+    margin-left: 130px !important;
+  }
+  .MUIDataTableBodyCell-stackedCommon-338 {
+    font-size: 15px !important;
+    padding: 30px !important;
+  }
+  .footerpadding {
+    padding-left: 5px;
+  }
+}
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  /* footer css */
+  .footer {
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-left: 10px;
+  }
+  .footerpadding {
+    padding-left: 20px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .contactForm {
+    margin-left: 0px !important;
+  }
+  /* product description */
+  .cobLight {
+    font-size: 50px;
+    padding-top: 50px;
+    /* padding-left: 120px !important; */
+    text-align: center;
+  }
+  .cobImageG {
+    padding-left: 0px !important;
+    text-align: center !important;
+  }
+  .cobImage {
+    width: 180px !important;
+  }
+  .cobButton {
+    margin-left: 210px !important;
+  }
+  .MUIDataTableBodyCell-stackedCommon-338 {
+    font-size: 15px !important;
+    padding: 30px !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  /* product description */
+  .cobLight {
+    font-size: 46px;
+    padding-top: 100px;
+    padding-left: 0px !important;
+  }
+  .cobImageG {
+    padding-left: 100px !important;
+  }
+  .cobImage {
+    width: 180px !important;
+  }
+  .cobButton {
+    margin-left: 410px !important;
+  }
+}
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+.price {
+  text-align: center;
+  font-size: 20px;
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* footer css */
+  .footer {
+    padding-top: 0;
+    padding-left: 0;
+    padding-left: 30px;
+  }
+  .footerpadding {
+    padding-left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    padding-left: 100px;
+  }
+  .contactForm {
+    margin-left: 140px !important;
+  }
+  /* product description */
+  .cobLight {
+    font-size: 50px;
+    padding-top: 50px;
+    padding-left: 125px;
+  }
+  .cobImageG {
+    padding-left: 180px !important;
+  }
+  .cobImage {
+    width: 180px !important;
+  }
+  .cobButton {
+    margin-left: 760px !important;
+  }
+  .MUIDataTableBodyCell-stackedCommon-338 {
+    font-size: 15px !important;
+    padding: 30px !important;
+  }
+}
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* footer css */
+  .footer {
+    padding-top: 0;
+    padding-left: 0;
+    padding-left: 30px;
+  }
+  .footerpadding {
+    padding-left: 10px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .contactForm {
+    margin-left: 0px !important;
+  }
+  /* product description */
+  .cobLight {
+    font-size: 40px;
+    padding-top: 80px;
+    padding-left: 0px;
+  }
+  .cobImageG {
+    padding-left: 160px !important;
+  }
+  .cobImage {
+    width: 170px !important;
+  }
+  .cobButton {
+    margin-left: 550px !important;
+  }
+  .MUIDataTableBodyCell-stackedCommon-338 {
+    font-size: 16px !important;
+    padding: 25px !important;
+  }
+}
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .contactForm {
+    margin-left: 100px !important;
+  }
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  .contactForm {
+    margin-left: 150px !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .contactForm {
+    margin-left: 100px !important;
+  }
+  /* product description */
+  .cobLight {
+    font-size: 50px;
+    padding-top: 90px;
+    padding-left: 15px;
+  }
+  .cobImageG {
+    padding-left: 280px !important;
+  }
+  .cobImage {
+    width: 180px !important;
+  }
+  .cobButton {
+    margin-left: 640px !important;
+  }
+}
+.MuiCardContent-root.makeStyles-cardContent-7,
+div.price.all {
+  font-size: 20px;
+  text-align: center;
+}
+.MuiCardContent-root.makeStyles-cardContent-7:hover {
+  text-decoration: wavy;
+  background-color: beige;
+}
+body {
+  background: linear-gradient(#d2eaf5, lightgreen);
+  background-size: cover;
+}
+.main-content {
+  min-height: 90vh;
+  /* border: 2px solid red; */
+}
+.price.all {
+  display: flex;
+  flex-direction: column;
+}
+.price.all span {
+  font-size: 0.8em;
+}
+.titles {
+  font-size: 1.4em;
+}
