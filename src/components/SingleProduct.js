@@ -51,7 +51,7 @@ export default function SingleProduct() {
     ele2.current.focus();
   };
   return (
-    <div>
+    <div  style={{marginTop: '75px'}}>
       <div className="container">
         {alert && (
           <div
@@ -68,7 +68,8 @@ export default function SingleProduct() {
               <Card.Img
                 variant="top"
                 src={arr.url}
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: "cover" ,width: '100%',  height: '20vw'}}
+          
               />
               <Card.Body>
                 <Card.Title className="text-center">
@@ -100,7 +101,7 @@ export default function SingleProduct() {
                 <h2 className="fs-title">
                   Buy <bold>{arr.Varitey}</bold>
                 </h2>
-                <h3 className="fs-subtitle">We will contact you asap</h3>
+                <h3 className="fs-subtitle">Place your order</h3>
                 <input
                   type="text"
                   name="name"

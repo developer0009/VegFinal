@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div style={{ border: "2px solid red", marginBottom: "76px" }}>
+    <div style={{ border: "2px solid red" }}>
       <Navbar
         collapseOnSelect
         expand="lg"
@@ -16,7 +16,7 @@ const Header = () => {
         <Navbar.Brand>
           {" "}
           <Link to="/" className="Link link2">
-            <h4>7 Cows</h4>
+            <h4>7 Cows Organics</h4>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

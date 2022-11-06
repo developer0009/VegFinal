@@ -58,8 +58,7 @@ export default function Products() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      <main>
+      <main  style={{marginTop: '75px'}}>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
 

@@ -72,7 +72,7 @@ export default function Products() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <main>
         {/* Hero unit */}
         <Carousel
@@ -92,43 +92,43 @@ export default function Products() {
             <img
               style={{
                 background: "white",
-                objectFit: "contain",
-                height: "400px",
+                objectFit: "cover",
+                height:"500px"
               }}
-              src="https://images.unsplash.com/photo-1607528971899-2e89e6c0ec69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y3Vyb3NlbCUyMHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+              src="https://res.cloudinary.com/djbumrtvf/image/upload/v1667728333/pexels-fuzzy-rescue-3669640_yoepyg.jpg"
             />
           </div>
           <div>
             <img
               style={{
                 background: "white",
-                objectFit: "contain",
-                height: "400px",
+                objectFit: "cover",
+                height:"500px"
               }}
               // src="https://images.unsplash.com/photo-1607528971899-2e89e6c0ec69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y3Vyb3NlbCUyMHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-              src="https://images.unsplash.com/photo-1542223189-67a03fa0f0bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+              src="https://res.cloudinary.com/djbumrtvf/image/upload/v1667728331/pexels-elle-hughes-1660027_ot1pt9.jpg"
             />
           </div>
           <div>
             <img
               style={{
                 background: "white",
-                objectFit: "contain",
-                height: "400px",
+                objectFit: "cover",
+                height:"500px"
               }}
               // src="https://images.unsplash.com/photo-1607528971899-2e89e6c0ec69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y3Vyb3NlbCUyMHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-              src="https://images.unsplash.com/photo-1598030304671-5aa1d6f21128?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+              src="https://res.cloudinary.com/djbumrtvf/image/upload/v1667728329/pexels-cats-coming-750952_yepdww.jpg"
             />
           </div>
           <div>
             <img
               style={{
                 background: "white",
-                objectFit: "contain",
-                height: "400px",
+                objectFit: "cover",
+                height:"500px"
               }}
               // src="https://images.unsplash.com/photo-1607528971899-2e89e6c0ec69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y3Vyb3NlbCUyMHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-              src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+              src="https://res.cloudinary.com/djbumrtvf/image/upload/v1667729232/pexels-mark-stebnicki-2252584_ff1mkv.jpg"
             />
           </div>
         </Carousel>
@@ -174,7 +174,7 @@ export default function Products() {
                             </span>
                             <Button
                               variant="outlined"
-                              href="/contacts"
+                              href={`/products/${obj.Varitey}`}
                               style={{
                                 marginTop: "25px",
                                 display: "block",
@@ -182,7 +182,7 @@ export default function Products() {
                                 //   margin: "0 auto",
                               }}
                             >
-                              Book Now
+                              Place Order
                             </Button>
                             {/* </span> */}
                           </div>
@@ -232,7 +232,7 @@ export default function Products() {
                             </span>
                             <Button
                               variant="outlined"
-                              href="/contacts"
+                              href={`/products/${obj.Varitey}`} 
                               style={{
                                 marginTop: "25px",
                                 display: "block",
@@ -240,7 +240,7 @@ export default function Products() {
                                 //   margin: "0 auto",
                               }}
                             >
-                              Book Now
+                              Place Order
                             </Button>
                             {/* </span> */}
                           </div>
@@ -251,7 +251,7 @@ export default function Products() {
                 );
               })}
           </Grid>
-          <Grid item xs={12} className="border text-center my-4">
+          {/* <Grid item xs={12} className="border text-center my-4">
             <h4>
               Click here to see more <i class="fa-solid fa-angle-down"></i>
             </h4>
@@ -260,7 +260,7 @@ export default function Products() {
                 Show More <i class="fa-solid fa-arrow-right"></i>
               </div>
             </a>
-          </Grid>
+          </Grid> */}
         </Container>
       </main>
     </React.Fragment>

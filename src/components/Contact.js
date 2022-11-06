@@ -16,18 +16,17 @@ function Contacts() {
     this.setState({ [e.target.name]: e.target.value });
   };
   return (
-    <div className="contacts">
+    <div className="contacts" >
       <Container>
         <Grid container spacing={4}>
           <Grid className="contactForm" item xs={12} sm={6} md={4}>
             <form id="msform">
               <fieldset>
-                <h2 className="fs-title">Send Product Details</h2>
-                <h3 className="fs-subtitle">We will contact you asap</h3>
+                <h2 className="fs-title">Contact Us</h2>
+                {/* <h3 className="fs-subtitle">We will contact you asap</h3> */}
                 <input type="text" name="fname" placeholder="Name" />
                 <input type="text" name="phone" placeholder="Phone" />
                 <input type="email" name="email" placeholder="Email" />
-                <input type="text" name="product" placeholder="Product Name" />
                 <textarea name="address" placeholder="Address"></textarea>
                 <input
                   type="submit"
@@ -42,7 +41,7 @@ function Contacts() {
             <div style={{ textAlign: "center" }}>
               <img src="https://img.icons8.com/ios-glyphs/60/000000/phone--v1.png"></img>
               <p style={{ fontSize: "25px" }}>
-                9063322283, 8019764115, 8008678047
+                +91-7093882607, +91-7097938570
               </p>
               <br />
               <img src="https://img.icons8.com/metro/52/000000/marker.png"></img>
@@ -50,14 +49,14 @@ function Contacts() {
                 <b>7 Cows PVT. LTD. </b>
               </p>
               <p>
-                Nagarjuna Nagar Colony, Road No. 4, Kushaiguda, ECIL, Hyderabad,
+                Kukatpally 
                 <br />
                 Telangana-500062.
               </p>
               <div>
                 <h3>
                   <img src="https://img.icons8.com/metro/26/000000/filled-message.png" />{" "}
-                  : contact@turtleled.com
+                  : 7cowsorganics@gmail.com
                 </h3>
               </div>
             </div>

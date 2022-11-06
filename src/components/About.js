@@ -13,7 +13,7 @@ export default function Contacts() {
 
   return (
     <React.Fragment>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm"  style={{marginTop: '75px'}}>
         <div>
           <img
             src="logo/Logo_Revision.png"
@@ -28,7 +28,7 @@ export default function Contacts() {
           <br />
           <div>
             <p>
-              7 cows organics is an <mark>authentic/guarantee</mark> of Organic
+              7 cows organics is an authentic/guarantee of Organic
               Living. We at 7cows offer pure organic fruits & Vegetables,
               grocery, beauty, health, and wellness products for your organic
               lifestyle. 7cows encourages customers to take control of their
