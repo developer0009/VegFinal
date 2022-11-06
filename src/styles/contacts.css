@@ -6,7 +6,9 @@
   margin: 0;
   padding: 0;
 }
-
+body {
+  box-sizing: content-box;
+}
 html {
   height: 100%;
   /*Image only BG fallback*/
@@ -95,4 +97,18 @@ div.contactForm {
 }
 input.product {
   font-weight: 900;
+}
+.product-card {
+  width: 30rem;
+}
+@media only screen and (max-width: 768px) {
+  div.container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .product-card {
+    width: 25rem;
+    margin: 0 auto;
+  }
 }

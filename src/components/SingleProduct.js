@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useMemo } from "react";
-import { productData } from "../DB/data";
+import { productData, productFruits } from "../DB/data";
 import { useParams } from "react-router-dom";
 import { data } from "../DB/data";
 import { Row, Col, Card, Button } from "react-bootstrap";
@@ -10,13 +10,19 @@ export default function SingleProduct() {
   const ele = useRef();
   const ele2 = useRef();
   const [disable, setDisable] = useState(false);
+  const [alert, setAlert] = useState(false);
   const arr = useMemo(() => {
-    return {
+    const obj = {
       ...data.find((obj) => obj.Varitey === name.trim()),
-      url: productData[Math.floor(Math.random() * 7)],
+    };
+    return {
+      ...obj,
+      url:
+        obj.Catogery === "veggies"
+          ? productData[Math.floor(Math.random() * 7)]
+          : productFruits[Math.floor(Math.random() * 5)],
     };
   }, []);
-  //in react memeo dependency is very important
   const [prod, setProd] = useState({
     name: "",
     phone: "",
@@ -25,6 +31,14 @@ export default function SingleProduct() {
     kg: "",
     address: "",
   });
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    console.log(prod);
+    setAlert(true);
+    setTimeout(() => {
+      setAlert(false);
+    }, 3000);
+  };
   const handleChange = (evt) => {
     setProd({ ...prod, [evt.target.name]: evt.target.value });
     if (evt.target.name == "kg")
@@ -34,15 +48,28 @@ export default function SingleProduct() {
     ele.current.value = 1 * arr.sku + ` ${arr.Units}`;
     setDisable(!disable);
     ele2.current.value = 1;
+    ele2.current.focus();
   };
-
   return (
     <div>
-      <div className="container ">
+      <div className="container">
+        {alert && (
+          <div
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>Details Saved !!</strong> We Will Contact You As Soon as
+            Possible ..
+          </div>
+        )}
         <Row>
           <Col md={8} s={5}>
-            <Card style={{ width: "30rem", marginTop: "35px" }}>
-              <Card.Img variant="top" src={arr.url} />
+            <Card style={{ marginTop: "35px" }} className="product-card">
+              <Card.Img
+                variant="top"
+                src={arr.url}
+                style={{ objectFit: "contain" }}
+              />
               <Card.Body>
                 <Card.Title className="text-center">
                   {arr.Varitey[0].toUpperCase() + arr.Varitey.substring(1)}
@@ -54,7 +81,7 @@ export default function SingleProduct() {
 
                 <Card.Text>
                   {!arr.Description
-                    ? "Some quick example text to build on the card title and make up the bulk of the card's content."
+                    ? "Fruits and vegetables contain important vitamins, minerals and plant chemicals. They also contain fibre. There are many varieties of fruit and vegetables available "
                     : arr.Description}{" "}
                 </Card.Text>
                 <Button
@@ -68,7 +95,7 @@ export default function SingleProduct() {
             </Card>
           </Col>
           <Col md={4}>
-            <form id="msform">
+            <form id="msform" onSubmit={handleSubmit}>
               <fieldset>
                 <h2 className="fs-title">
                   Buy <bold>{arr.Varitey}</bold>
@@ -80,6 +107,7 @@ export default function SingleProduct() {
                   placeholder="Name"
                   onChange={handleChange}
                   value={prod.name}
+                  required
                 />
                 <input
                   type="text"
@@ -87,6 +115,7 @@ export default function SingleProduct() {
                   placeholder="Phone"
                   value={prod.phone}
                   onChange={handleChange}
+                  required
                 />
 
                 <input
@@ -111,6 +140,7 @@ export default function SingleProduct() {
                   placeholder="Enter quantity"
                   ref={ele2}
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="email"
@@ -122,6 +152,7 @@ export default function SingleProduct() {
                   name="address"
                   placeholder="Address"
                   onChange={handleChange}
+                  required
                 ></textarea>
                 <input
                   type="submit"
