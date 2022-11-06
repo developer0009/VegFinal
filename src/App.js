@@ -23,9 +23,9 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contact />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:name" element={<SingleProduct />} />
-          <Route path="*" element={<Landing />} />
+          <Route exact path="/products" element={<Products />} />
+          <Route exact path="/products/:name" element={<SingleProduct />} />
+          <Route path="/*" element={<Landing />} />
         </Routes>
       </div>
       <Footer />

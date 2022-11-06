@@ -101,11 +101,17 @@ input.product {
 .product-card {
   width: 30rem;
 }
+.card-image {
+  height: 40vh;
+}
 @media only screen and (max-width: 768px) {
   div.container {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  .card-image {
+    height: fit-content;
   }
   .product-card {
     width: 25rem;

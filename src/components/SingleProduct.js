@@ -4,13 +4,17 @@ import { productData, productFruits } from "../DB/data";
 import { useParams } from "react-router-dom";
 import { data } from "../DB/data";
 import { Row, Col, Card, Button } from "react-bootstrap";
+import axios from "axios";
 import "../styles/contacts.css";
+import useFetch from "../customHooks/useFetch";
+
 export default function SingleProduct() {
   const { name } = useParams();
   const ele = useRef();
   const ele2 = useRef();
   const [disable, setDisable] = useState(false);
   const [alert, setAlert] = useState(false);
+  const [loading, url] = useFetch(name);
   const arr = useMemo(() => {
     const obj = {
       ...data.find((obj) => obj.Varitey === name.trim()),
@@ -28,12 +32,15 @@ export default function SingleProduct() {
     phone: "",
     product: arr.Varitey,
     email: "",
-    kg: "",
+    quantity: "",
     address: "",
   });
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
-    console.log(prod);
+    const details = await axios.post(
+      "http://localhost:8080/api/user/details",
+      prod
+    );
     setAlert(true);
     setTimeout(() => {
       setAlert(false);
@@ -41,7 +48,7 @@ export default function SingleProduct() {
   };
   const handleChange = (evt) => {
     setProd({ ...prod, [evt.target.name]: evt.target.value });
-    if (evt.target.name == "kg")
+    if (evt.target.name == "quantity")
       ele.current.value = ele2.current.value * arr.sku + ` ${arr.Units}`;
   };
   const handleClick = () => {
@@ -51,121 +58,126 @@ export default function SingleProduct() {
     ele2.current.focus();
   };
   return (
-    <div  style={{marginTop: '75px'}}>
-      <div className="container">
-        {alert && (
-          <div
-            class="alert alert-success alert-dismissible fade show"
-            role="alert"
-          >
-            <strong>Details Saved !!</strong> We Will Contact You As Soon as
-            Possible ..
-          </div>
-        )}
-        <Row>
-          <Col md={8} s={5}>
-            <Card style={{ marginTop: "35px" }} className="product-card">
-              <Card.Img
-                variant="top"
-                src={arr.url}
-                style={{ objectFit: "cover" ,width: '100%',  height: '20vw'}}
-          
-              />
-              <Card.Body>
-                <Card.Title className="text-center">
-                  {arr.Varitey[0].toUpperCase() + arr.Varitey.substring(1)}
-                </Card.Title>
-                <Card.Text className="text-center">
-                  {" "}
-                  Quantity : {arr.sku} {arr.Units}
-                </Card.Text>
+    !loading && (
+      <div style={{ marginTop: "75px" }}>
+        <div className="container">
+          {alert && (
+            <div
+              class="alert alert-success alert-dismissible fade show"
+              role="alert"
+            >
+              <strong>Details Saved !!</strong> We Will Contact You As Soon as
+              Possible ..
+            </div>
+          )}
+          <Row>
+            <Col md={8} s={5}>
+              <Card style={{ marginTop: "35px" }} className="product-card">
+                <Card.Img
+                  className="card-image"
+                  variant="top"
+                  src={url || arr.url}
+                  style={{ objectFit: "cover", width: "100%" }}
+                />
+                <Card.Body>
+                  <Card.Title className="text-center">
+                    {arr.Varitey[0].toUpperCase() + arr.Varitey.substring(1)}
+                  </Card.Title>
+                  <Card.Text className="text-center">
+                    {" "}
+                    Quantity : {arr.sku} {arr.Units}
+                  </Card.Text>
 
-                <Card.Text>
-                  {!arr.Description
-                    ? "Fruits and vegetables contain important vitamins, minerals and plant chemicals. They also contain fibre. There are many varieties of fruit and vegetables available "
-                    : arr.Description}{" "}
-                </Card.Text>
-                <Button
-                  variant="success"
-                  onClick={handleClick}
-                  disabled={disable}
-                >
-                  Add to Cart <i class="fa-solid fa-cart-shopping"></i>
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={4}>
-            <form id="msform" onSubmit={handleSubmit}>
-              <fieldset>
-                <h2 className="fs-title">
-                  Buy <bold>{arr.Varitey}</bold>
-                </h2>
-                <h3 className="fs-subtitle">Place your order</h3>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  onChange={handleChange}
-                  value={prod.name}
-                  required
-                />
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone"
-                  value={prod.phone}
-                  onChange={handleChange}
-                  required
-                />
+                  <Card.Text>
+                    {!arr.Description
+                      ? "Fruits and vegetables contain important vitamins, minerals and plant chemicals. They also contain fibre. There are many varieties of fruit and vegetables available "
+                      : arr.Description}{" "}
+                  </Card.Text>
+                  <div className="text-center">
+                    <Button
+                      variant="success"
+                      onClick={handleClick}
+                      className="text-center"
+                      disabled={disable}
+                    >
+                      Add to Cart <i class="fa-solid fa-cart-shopping"></i>
+                    </Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <form id="msform" onSubmit={handleSubmit}>
+                <fieldset>
+                  <h2 className="fs-title">
+                    Buy <bold>{arr.Varitey}</bold>
+                  </h2>
+                  <h3 className="fs-subtitle">Place your order</h3>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    onChange={handleChange}
+                    value={prod.name}
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone"
+                    value={prod.phone}
+                    onChange={handleChange}
+                    required
+                  />
 
-                <input
-                  type="text"
-                  name="product"
-                  className="product"
-                  placeholder="Product"
-                  value={arr.Varitey}
-                  disabled
-                  readOnly
-                />
-                <input
-                  type="text"
-                  name="kg"
-                  placeholder="0 quantity"
-                  ref={ele}
-                  disabled
-                />
-                <input
-                  type="text"
-                  name="kg"
-                  placeholder="Enter quantity"
-                  ref={ele2}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  onChange={handleChange}
-                />
-                <textarea
-                  name="address"
-                  placeholder="Address"
-                  onChange={handleChange}
-                  required
-                ></textarea>
-                <input
-                  type="submit"
-                  name="submit"
-                  className="submit action-button"
-                  value="Submit"
-                />
-              </fieldset>
-            </form>
-          </Col>
-        </Row>
+                  <input
+                    type="text"
+                    name="product"
+                    className="product"
+                    placeholder="Product"
+                    value={arr.Varitey}
+                    disabled
+                    readOnly
+                  />
+                  <input
+                    type="text"
+                    name="kg"
+                    placeholder="0 quantity"
+                    ref={ele}
+                    disabled
+                  />
+                  <input
+                    type="text"
+                    name="quantity"
+                    placeholder="Enter quantity"
+                    ref={ele2}
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    onChange={handleChange}
+                  />
+                  <textarea
+                    name="address"
+                    placeholder="Address"
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                  <input
+                    type="submit"
+                    name="submit"
+                    className="submit action-button"
+                    value="Submit"
+                  />
+                </fieldset>
+              </form>
+            </Col>
+          </Row>
+        </div>
       </div>
-    </div>
+    )
   );
 }
