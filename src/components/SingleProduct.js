@@ -42,6 +42,7 @@ export default function SingleProduct() {
       prod
     );
     setAlert(true);
+    window.scrollTo(0, 0);
     setTimeout(() => {
       setAlert(false);
     }, 3000);
