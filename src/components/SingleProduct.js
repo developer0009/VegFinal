@@ -14,7 +14,10 @@ export default function SingleProduct() {
   const ele2 = useRef();
   const [disable, setDisable] = useState(false);
   const [alert, setAlert] = useState(false);
+
+  console.log(name);
   const [loading, url] = useFetch(name);
+  console.log(loading, url);
   const arr = useMemo(() => {
     const obj = {
       ...data.find((obj) => obj.Varitey === name.trim()),
@@ -26,7 +29,7 @@ export default function SingleProduct() {
           ? productData[Math.floor(Math.random() * 7)]
           : productFruits[Math.floor(Math.random() * 5)],
     };
-  }, []);
+  }, [name]);
   const [prod, setProd] = useState({
     name: "",
     phone: "",
@@ -34,13 +37,11 @@ export default function SingleProduct() {
     email: "",
     quantity: "",
     address: "",
+    sku: arr.Units,
   });
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const details = await axios.post(
-      "http://localhost:8080/api/user/details",
-      prod
-    );
+    const details = await axios.post("/details", prod);
     setAlert(true);
     window.scrollTo(0, 0);
     setTimeout(() => {
@@ -56,6 +57,7 @@ export default function SingleProduct() {
     ele.current.value = 1 * arr.sku + ` ${arr.Units}`;
     setDisable(!disable);
     ele2.current.value = 1;
+    setProd({ ...prod, quantity: 1 });
     ele2.current.focus();
   };
   return (
@@ -67,7 +69,7 @@ export default function SingleProduct() {
               class="alert alert-success alert-dismissible fade show"
               role="alert"
             >
-              <strong>Details Saved !!</strong> We Will Contact You As Soon as
+              <strong>DETAIL'S SAVED !!</strong> We Will Contact You As Soon as
               Possible ..
             </div>
           )}

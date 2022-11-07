@@ -17,7 +17,6 @@ import { data } from "../DB/data.js";
 import { createClient } from "pexels";
 import { productData } from "../DB/data.js";
 import { productFruits } from "../DB/data.js";
-
 import { useState } from "react";
 function Copyright() {
   return (
@@ -29,7 +28,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -93,7 +91,7 @@ export default function Products() {
               style={{
                 background: "white",
                 objectFit: "cover",
-                height:"500px"
+                height: "500px",
               }}
               src="https://res.cloudinary.com/djbumrtvf/image/upload/v1667728333/pexels-fuzzy-rescue-3669640_yoepyg.jpg"
             />
@@ -103,7 +101,7 @@ export default function Products() {
               style={{
                 background: "white",
                 objectFit: "cover",
-                height:"500px"
+                height: "500px",
               }}
               // src="https://images.unsplash.com/photo-1607528971899-2e89e6c0ec69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y3Vyb3NlbCUyMHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
               src="https://res.cloudinary.com/djbumrtvf/image/upload/v1667728331/pexels-elle-hughes-1660027_ot1pt9.jpg"
@@ -114,7 +112,7 @@ export default function Products() {
               style={{
                 background: "white",
                 objectFit: "cover",
-                height:"500px"
+                height: "500px",
               }}
               // src="https://images.unsplash.com/photo-1607528971899-2e89e6c0ec69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y3Vyb3NlbCUyMHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
               src="https://res.cloudinary.com/djbumrtvf/image/upload/v1667728329/pexels-cats-coming-750952_yepdww.jpg"
@@ -125,7 +123,7 @@ export default function Products() {
               style={{
                 background: "white",
                 objectFit: "cover",
-                height:"500px"
+                height: "500px",
               }}
               // src="https://images.unsplash.com/photo-1607528971899-2e89e6c0ec69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y3Vyb3NlbCUyMHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
               src="https://res.cloudinary.com/djbumrtvf/image/upload/v1667729232/pexels-mark-stebnicki-2252584_ff1mkv.jpg"
@@ -232,7 +230,7 @@ export default function Products() {
                             </span>
                             <Button
                               variant="outlined"
-                              href={`/products/${obj.Varitey}`} 
+                              href={`/products/${obj.Varitey}`}
                               style={{
                                 marginTop: "25px",
                                 display: "block",

@@ -13,9 +13,8 @@ const useFetch = (query) => {
       } catch (error) {
         setData(null);
         setLoading(false);
+        console.dir(error);
       }
-
-      console.log(data);
     })(query);
   });
   return [loading, data];

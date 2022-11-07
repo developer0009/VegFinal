@@ -17,10 +17,7 @@ function Contacts() {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     console.log();
-    const user = await axios.post(
-      "http://localhost:8080/api/user/contact",
-      form
-    );
+    const user = await axios.post("/contact", form);
     setAlert(true);
     setTimeout(() => {
       setAlert(false);
@@ -31,8 +28,7 @@ function Contacts() {
       <Container>
         {alert && (
           <div class="alert alert-success" role="alert">
-            <strong> Details Saved Successfully!! </strong> we will contact you
-            asap!!
+            <strong>DETAIL'S SAVED !!</strong> we will contact you asap!!
           </div>
         )}
         <Grid container spacing={4}>

@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://cowsorganics7-api.herokuapp.com/api/user/",
   "engines": {
     "node": "16.16.0"
   },
