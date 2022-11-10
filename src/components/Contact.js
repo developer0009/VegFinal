@@ -3,6 +3,7 @@ import Container from "@material-ui/core/Container";
 import { useState } from "react";
 import "../styles/contacts.css";
 import axios from "axios";
+import { HOST } from "../utils/constants";
 function Contacts() {
   const [form, setForm] = useState({
     name: "",
@@ -16,8 +17,7 @@ function Contacts() {
   };
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    console.log();
-    const user = await axios.post("/contact", form);
+    const user = await axios.post(`${HOST}contact`, form);
     setAlert(true);
     setTimeout(() => {
       setAlert(false);
@@ -84,12 +84,12 @@ function Contacts() {
               <br />
               <img src="https://img.icons8.com/metro/52/000000/marker.png"></img>
               <p style={{ fontSize: "25px" }}>
-                <b>7 Cows PVT. LTD. </b>
+                <b>LUKESWELL PRIVATE LIMITED</b>
               </p>
               <p>
-                Kukatpally
+                PLOT NO 9,9B SHESHADRI NAGAR, KUKATPALLY
                 <br />
-                Telangana-500062.
+                Telangana-500072.
               </p>
               <div>
                 <h3>

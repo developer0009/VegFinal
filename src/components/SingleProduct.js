@@ -7,6 +7,7 @@ import { Row, Col, Card, Button } from "react-bootstrap";
 import axios from "axios";
 import "../styles/contacts.css";
 import useFetch from "../customHooks/useFetch";
+import { HOST } from "../utils/constants";
 
 export default function SingleProduct() {
   const { name } = useParams();
@@ -15,9 +16,8 @@ export default function SingleProduct() {
   const [disable, setDisable] = useState(false);
   const [alert, setAlert] = useState(false);
 
-  console.log(name);
+  
   const [loading, url] = useFetch(name);
-  console.log(loading, url);
   const arr = useMemo(() => {
     const obj = {
       ...data.find((obj) => obj.Varitey === name.trim()),
@@ -41,7 +41,7 @@ export default function SingleProduct() {
   });
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const details = await axios.post("/details", prod);
+    const details = await axios.post(`${HOST}details`, prod);
     setAlert(true);
     window.scrollTo(0, 0);
     setTimeout(() => {
